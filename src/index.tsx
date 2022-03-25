@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import reducer from "./store/reducer";
 import thunk from "redux-thunk";
 import { applyMiddleware, createStore, Store } from "redux";
-import "./index.css";
+import "./index.scss";
 
 const store: Store<ArticleState, ArticleAction> & {
   dispatch: DispatchType;

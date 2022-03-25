@@ -49,3 +49,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Redux Articles
 
 https://www.freecodecamp.org/news/how-to-use-redux-in-your-react-typescript-app/
+
+https://www.ibrahima-ndaw.com/blog/7-steps-to-understand-react-redux/#1-what-is-a-state
+
+## storybook
+
+https://create-react-app.dev/docs/developing-components-in-isolation
+
+## Testing
+
+https://create-react-app.dev/docs/running-tests
