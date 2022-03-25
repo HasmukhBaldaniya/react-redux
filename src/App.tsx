@@ -1,23 +1,20 @@
 import React, { Dispatch } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { addArticle, removeArticle } from './store/actionCreators';
 import { AddArticle } from './components/AddArticle';
 import { Article } from './components/Article';
 
-function App() {
-  const articles: readonly IArticle[] = useSelector(
+const App = () => {
+  const articles = useSelector(
     (state: ArticleState) => state.articles,
     shallowEqual
   )
 
   const dispatch: Dispatch<any> = useDispatch()
 
-  const saveArticle = React.useCallback(
-    (article: IArticle) => dispatch(addArticle(article)),
-    [dispatch]
-  )
+  const saveArticle = (article: any) => {
+    dispatch(addArticle(article));
+  }
   
   return (
     <div className="App">

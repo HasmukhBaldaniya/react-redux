@@ -1,13 +1,13 @@
-import * as React from "react"
+import React, { useState, FormEvent } from 'react';
 
 type Props = {
   saveArticle: (article: IArticle | any) => void
 }
 
 export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
-  const [article, setArticle] = React.useState<IArticle | {}>()
+  const [article, setArticle] = useState<IArticle | {}>()
 
-  const handleArticleData = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleArticleData = (e: FormEvent<HTMLInputElement>) => {
     setArticle({
       ...article,
       [e.currentTarget.id]: e.currentTarget.value,

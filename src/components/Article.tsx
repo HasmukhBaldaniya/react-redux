@@ -1,19 +1,18 @@
-import * as React from "react"
-import { Dispatch } from "redux"
-import { useDispatch } from "react-redux"
+import * as React from "react";
+import { Dispatch } from "redux";
+import { useDispatch } from "react-redux";
 
 type Props = {
-  article: IArticle
-  removeArticle: (article: IArticle) => void
-}
+  article: IArticle;
+  removeArticle: (article: IArticle) => void;
+};
 
 export const Article: React.FC<Props> = ({ article, removeArticle }) => {
-  const dispatch: Dispatch<any> = useDispatch()
+  const dispatch: Dispatch<any> = useDispatch();
 
-  const deleteArticle = React.useCallback(
-    (article: IArticle) => dispatch(removeArticle(article)),
-    [dispatch, removeArticle]
-  )
+  const deleteArticle = (article: IArticle) => {
+    dispatch(removeArticle(article));
+  };
 
   return (
     <div className="Article">
@@ -23,5 +22,5 @@ export const Article: React.FC<Props> = ({ article, removeArticle }) => {
       </div>
       <button onClick={() => deleteArticle(article)}>Delete</button>
     </div>
-  )
-}
+  );
+};

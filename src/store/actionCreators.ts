@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes"
 
-export function addArticle(article: IArticle) {
+export const addArticle = (article: IArticle) => {
   const action: ArticleAction = {
     type: actionTypes.ADD_ARTICLE,
     article,
@@ -9,7 +9,7 @@ export function addArticle(article: IArticle) {
   return simulateHttpRequest(action)
 }
 
-export function removeArticle(article: IArticle) {
+export const removeArticle = (article: IArticle) => {
   const action: ArticleAction = {
     type: actionTypes.REMOVE_ARTICLE,
     article,
@@ -17,7 +17,7 @@ export function removeArticle(article: IArticle) {
   return simulateHttpRequest(action)
 }
 
-export function simulateHttpRequest(action: ArticleAction) {
+export const simulateHttpRequest = (action: ArticleAction) => {
   return (dispatch: DispatchType) => {
     setTimeout(() => {
       dispatch(action)
