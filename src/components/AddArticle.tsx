@@ -1,23 +1,27 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from "react";
 
 type Props = {
-  saveArticle: (article: IArticle | any) => void
-}
+  saveArticle: (article: IArticle | any) => void;
+};
 
 export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
-  const [article, setArticle] = useState<IArticle | {}>()
+  const [article, setArticle] = useState<IArticle | {}>();
 
   const handleArticleData = (e: FormEvent<HTMLInputElement>) => {
     setArticle({
       ...article,
       [e.currentTarget.id]: e.currentTarget.value,
-    })
-  }
+    });
+  };
 
   const addNewArticle = (e: React.FormEvent) => {
-    e.preventDefault()
-    saveArticle(article)
-  }
+    e.preventDefault();
+    saveArticle(article);
+  };
+
+  useEffect(() => {
+    console.log('save articles');
+  }, [saveArticle]);
 
   return (
     <form onSubmit={addNewArticle} className="Add-article">
@@ -37,5 +41,5 @@ export const AddArticle: React.FC<Props> = ({ saveArticle }) => {
         Add article
       </button>
     </form>
-  )
-}
+  );
+};
