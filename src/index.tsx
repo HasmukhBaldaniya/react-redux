@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import reducer from "./store/reducer";
 import thunk from "redux-thunk";
 import { applyMiddleware, createStore, Store } from "redux";
+import { BrowserRouter } from "react-router-dom";
+
 import "./index.scss";
 
 const store: Store<ArticleState, ArticleAction> & {
@@ -15,7 +17,9 @@ const store: Store<ArticleState, ArticleAction> & {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
