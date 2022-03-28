@@ -49,3 +49,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Redux Articles
 
 https://www.freecodecamp.org/news/how-to-use-redux-in-your-react-typescript-app/
+
+## Context Api
+https://dev.to/alexander7161/react-context-api-with-typescript-example-j7a

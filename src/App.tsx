@@ -1,4 +1,5 @@
-import React, { Dispatch, useCallback } from "react";
+import React, { Dispatch, useCallback, useContext } from "react";
+import { TodosContext } from "./TodosContext";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { addArticle, removeArticle } from "./store/actionCreators";
 import { AddArticle } from "./components/AddArticle";
@@ -7,16 +8,13 @@ import WithoutCallBack from "./components/WithoutCallBackFuc";
 import WithCallBack from "./components/WithCallBackFuc";
 
 const App = () => {
+  const { todos, addTodo } = useContext(TodosContext);
+  const dispatch: Dispatch<any> = useDispatch();
+
   const articles = useSelector(
     (state: ArticleState) => state.articles,
     shallowEqual
   );
-
-  const dispatch: Dispatch<any> = useDispatch();
-
-  // const saveArticle = (article: any) => {
-  //   dispatch(addArticle(article));
-  // }
 
   const saveArticle = useCallback(
     (article: IArticle) => dispatch(addArticle(article)),
@@ -25,6 +23,14 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>To do list</h1>
+      <div>
+        {todos.map((todo, i) => (
+          <div key={i}>{todo}</div>
+        ))}
+      </div>
+      <button onClick={() => addTodo("new todo")}>Add Todo</button>
+
       <main>
         <h1>My Articles</h1>
         <AddArticle saveArticle={saveArticle} />

@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import reducer from "./store/reducer";
 import thunk from "redux-thunk";
 import { applyMiddleware, createStore, Store } from "redux";
+import TodosProvider, { TodosContext } from "./TodosContext";
 import "./index.css";
 
 const store: Store<ArticleState, ArticleAction> & {
@@ -14,9 +15,11 @@ const store: Store<ArticleState, ArticleAction> & {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <TodosProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </TodosProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
